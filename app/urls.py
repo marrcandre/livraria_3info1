@@ -1,8 +1,7 @@
-from django.contrib import admin
-from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.contrib import admin
+from django.urls import include, path
 
 from drf_spectacular.views import (
     SpectacularAPIView,
@@ -19,7 +18,6 @@ from core.views import (
     LivroViewSet,
     UserViewSet,
 )
-
 from uploader.router import router as uploader_router
 
 router = DefaultRouter()
@@ -53,4 +51,3 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)
-
