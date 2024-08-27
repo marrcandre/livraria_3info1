@@ -51,7 +51,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         blank=True,
         default=None,
     )
-    
+
     objects = UserManager()
 
     USERNAME_FIELD = "email"
@@ -59,4 +59,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = "Usuário"
         verbose_name_plural = "Usuários"
-
