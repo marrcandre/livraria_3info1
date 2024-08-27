@@ -9,6 +9,8 @@ from django.contrib.auth.models import (
 )
 from django.db import models
 
+from uploader.models import Image
+
 
 class UserManager(BaseUserManager):
     """Manager for users."""
@@ -41,7 +43,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-
+    foto = models.ForeignKey(
+        Image,
+        related_name="+",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        default=None,
+    )
+    
     objects = UserManager()
 
     USERNAME_FIELD = "email"
@@ -49,3 +59,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = "Usuário"
         verbose_name_plural = "Usuários"
+
