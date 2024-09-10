@@ -66,7 +66,7 @@ class AutorAdmin(admin.ModelAdmin):
     search_fields = ("nome", "email")
     list_filter = ("nome",)
     ordering = ("nome", "email")
-
+    list_per_page = 10
 
 @admin.register(Categoria)
 class CategoriaAdmin(admin.ModelAdmin):
@@ -74,7 +74,7 @@ class CategoriaAdmin(admin.ModelAdmin):
     search_fields = ("descricao",)
     list_filter = ("descricao",)
     ordering = ("descricao",)
-
+    list_per_page = 10
 
 @admin.register(Editora)
 class EditoraAdmin(admin.ModelAdmin):
@@ -82,7 +82,7 @@ class EditoraAdmin(admin.ModelAdmin):
     search_fields = ("nome", "cidade", "email")
     list_filter = ("nome", "cidade", "email")
     ordering = ("nome",)
-
+    list_per_page = 10
 
 @admin.register(Livro)
 class LivroAdmin(admin.ModelAdmin):
@@ -104,5 +104,5 @@ class CompraAdmin(admin.ModelAdmin):
     search_fields = ("usuario", "status")
     list_filter = ("usuario", "status")
     ordering = ("usuario", "status")
-    list_per_page = 25
+    list_per_page = 10
     inlines = [ItensCompraInline]
